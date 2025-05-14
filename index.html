@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+
   <title>Dudes Butts Coin</title>
   <style>
     html, body {
@@ -13,19 +15,47 @@
       background-size: 75px 75px;
     }
 
-    /* Header and layout */
-    .header {
+    .layout-row {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      padding: 20px 0;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 20px 40px;
+      flex-wrap: wrap;
     }
 
-    .left-gif {
-      width: 250px;
-      height: 250px;
-      margin-right: 20px;
+    .side-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .side-column.left {
+      margin-left: 30px;
+    }
+
+    .side-column.right {
+      margin-right: 30px;
+    }
+
+    .top-gif {
+      width: 200px;
+      height: 200px;
+    }
+
+    .bottom-gif {
+      width: 300px;
+      height: 300px;
+    }
+
+    .center-column {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      min-width: 300px;
     }
 
     .main-header-img {
@@ -33,19 +63,12 @@
       height: auto;
     }
 
-    .music-toggle {
-      width: 200px;
-      height: 200px;
-      margin-left: 20px;
-      cursor: pointer;
-    }
-
     .social-links {
       display: flex;
       gap: 10px;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       justify-content: center;
-      padding: 20px 0;
+      overflow-x: auto;
     }
 
     .social-links a img {
@@ -92,8 +115,6 @@
       max-width: 1280px;
       margin: 60px auto;
       padding: 0 20px;
-      z-index: 1;
-      position: relative;
     }
 
     .video-grid video {
@@ -103,12 +124,19 @@
     }
 
     @media (max-width: 768px) {
+      .layout-row {
+        flex-direction: column;
+        align-items: center;
+      }
       .video-grid video {
         width: 100%;
       }
+      .side-column.left,
+      .side-column.right {
+        margin: 0;
+      }
     }
 
-    /* SCROLLING BORDER PNGs */
     .scroll-column {
       position: fixed;
       top: 0;
@@ -146,6 +174,24 @@
         transform: translateY(-50%);
       }
     }
+
+    .disclaimer {
+      text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  text-align: center;
+  font-size: 18px;
+  padding: 14px;
+    }
+	.text-box {
+	      text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  text-align: center;
+  font-size: 16px;
+  padding: 12px;
+}
+
   </style>
 </head>
 <body>
@@ -153,25 +199,34 @@
   <!-- AUDIO -->
   <audio id="backgroundMusic" src="DBCaudiobackground.mp3" autoplay loop></audio>
 
-  <!-- HEADER -->
-  <div class="header">
-    <img src="left-gif.gif" alt="Left GIF" class="left-gif" />
-    <img src="header.gif" alt="Header Image" class="main-header-img" />
-    <img src="music-on.gif" alt="Toggle Music" class="music-toggle" id="musicToggle" />
-  </div>
+  <!-- MAIN 3-COLUMN LAYOUT: LEFT | CENTER | RIGHT -->
+  <div class="layout-row">
 
-  <!-- SOCIAL LINKS -->
-  <div class="social-links">
-    <a href="https://x.com/DudesButtsCoin" target="_blank"><img src="x.gif" alt="Twitter" /></a>
-    <a href="https://t.me" target="_blank"><img src="telegram.gif" alt="Telegram" /></a>
-    <a href="https://dexscreener.com/pulsechain/0x532e18adade2eee63211c25a9fbd569b5a1f4afd" target="_blank"><img src="dexscreener.gif" alt="Dexscreener" /></a>
-    <a href="https://www.dextools.io/app/en/pulse/pair-explorer/0x532e18adade2eee63211c25a9fbd569b5a1f4afd?t=1747190299953" target="_blank"><img src="dextools.gif" alt="Dextools" /></a>
-    <a href="https://app.piteas.io" target="_blank"><img src="piteas.gif" alt="Piteas" /></a>
-  </div>
+    <!-- LEFT SIDE -->
+    <div class="side-column left">
+      <img src="top-left.gif" alt="Top Left GIF" class="top-gif" />
+      <img src="bottom-left.gif" alt="Bottom Left GIF" class="bottom-gif" />
+    </div>
 
-  <!-- STATIC GIF -->
-  <div style="display: flex; justify-content: center;">
-  <img src="idontthink.gif" alt="Meme" />
+    <!-- CENTER CONTENT -->
+    <div class="center-column">
+      <img src="header.gif" alt="Header" class="main-header-img" />
+      <div class="social-links">
+        <a href="https://x.com/DudesButtsCoin" target="_blank"><img src="x.gif" alt="Twitter" /></a>
+        <a href="https://t.me" target="_blank"><img src="telegram.gif" alt="Telegram" /></a>
+        <a href="https://dexscreener.com/pulsechain/0x532e18adade2eee63211c25a9fbd569b5a1f4afd" target="_blank"><img src="dexscreener.gif" alt="Dexscreener" /></a>
+        <a href="https://www.dextools.io/app/en/pulse/pair-explorer/0x532e18adade2eee63211c25a9fbd569b5a1f4afd?t=1747190299953" target="_blank"><img src="dextools.gif" alt="Dextools" /></a>
+        <a href="https://app.piteas.io" target="_blank"><img src="piteas.gif" alt="Piteas" /></a>
+      </div>
+      <img src="idontthink.gif" alt="Meme" />
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="side-column right">
+      <img src="music-on.gif" alt="Music Toggle" class="top-gif" id="musicToggle" />
+      <img src="bottom-right.gif" alt="Bottom Right GIF" class="bottom-gif" />
+    </div>
+
   </div>
 
   <!-- GIF BAND -->
@@ -199,6 +254,29 @@
     </div>
   </div>
 
+  
+  <div class="text-box">
+The Dudes are here and prepared to flex their Butts.<br>
+
+This Coin honors the good spirits of the Dudes and their Butts.<br>
+
+Together, we shill our bum-bums to all the dumb-dumbs.<br>
+
+This is a Pulsechain exclusive movement.<br><br>
+
+Contract Address: 0x95e52a76dd42102c7a7486371f0ca8d278e9aa4c<br><br>
+
+Total supply of 1 Trillion $DBC paired with 5,555,555 $PLS as PulseX v1 LP burnt and fairly launched.<br>
+TX: 0x39b652501c63e7cea5e0ba38c67746dde0d4caf6433ff6070e2ccac16f7a5039<br><br>
+
+
+No IFs and BUTs. Only GIFs and BUTTS.<br><br>
+
+
+Study what the expert Dudes have to say about Dudes Butts Coin ($DBC) below.
+</div>
+
+
   <!-- VIDEO GRID -->
   <div class="video-grid">
     <video src="video1.mp4" controls></video>
@@ -208,10 +286,17 @@
     <video src="video5.mp4" controls></video>
     <video src="video6.mp4" controls></video>
   </div>
-   <div style="display: flex; justify-content: center;">
-  <img src="rhtwerk.gif" alt="Meme" />
+
+  <!-- Meme footer -->
+  <div style="display: flex; justify-content: center;">
+    <img src="rhtwerk.gif" alt="Meme" />
   </div>
-Disclaimer: This site is a parody fan site and Dudes Butts Coin is purely for fun. This is not a financial investment.
+
+  <!-- Disclaimer -->
+  <div class="disclaimer">
+    Disclaimer:<br> This site is a parody fan site and Dudes Butts Coin is purely for fun. <br> Even the experts might be incompetent and spread misinformation. <br> This is not a financial investment.
+  </div>
+
   <!-- SCROLLING BORDER PNGs -->
   <div class="scroll-column scroll-left">
     <div class="scroll-track">
