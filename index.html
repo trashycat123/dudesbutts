@@ -210,7 +210,7 @@
       }
     }
 
-    /* === MOBILE STYLES === */
+    /* MOBILE STYLES */
     @media (max-width: 768px) {
       .layout-row {
         flex-direction: column;
@@ -219,8 +219,19 @@
       }
 
       .center-column {
+        order: 1;
         width: 100%;
         padding: 0 10px;
+      }
+
+      .side-column.left,
+      .side-column.right {
+        order: 2;
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
+        width: 100%;
+        margin: 0;
       }
 
       .top-gif,
@@ -234,32 +245,31 @@
         width: 100%;
       }
 
-      .side-column.left,
-      .side-column.right {
-        margin: 0;
+      .scroll-column {
+        display: block;
+        width: 20px;
       }
 
-      .scroll-column {
-        display: none;
+      .scroll-track img {
+        width: 20px;
+        height: 280px;
       }
     }
   </style>
 </head>
 <body>
+
   <!-- HORIZONTAL TOP BAND -->
   <div class="horizontal-band">
     <div class="horizontal-track">
-      <!-- Repeat image -->
-      <img src="border-horizontal.png" alt="" />
-      <img src="border-horizontal.png" alt="" />
-      <img src="border-horizontal.png" alt="" />
-      <img src="border-horizontal.png" alt="" />
-      <img src="border-horizontal.png" alt="" />
-	     <img src="border-horizontal.png" alt="" />
-      <img src="border-horizontal.png" alt="" />
-      <img src="border-horizontal.png" alt="" />
-      <img src="border-horizontal.png" alt="" />
-      <img src="border-horizontal.png" alt="" />
+      <img src="border-horizontal.png" />
+      <img src="border-horizontal.png" />
+      <img src="border-horizontal.png" />
+      <img src="border-horizontal.png" />
+	  <img src="border-horizontal.png" />
+      <img src="border-horizontal.png" />
+      <img src="border-horizontal.png" />
+      <img src="border-horizontal.png" />
     </div>
   </div>
 
@@ -268,11 +278,14 @@
 
   <!-- MAIN LAYOUT -->
   <div class="layout-row">
+
+    <!-- LEFT -->
     <div class="side-column left">
       <img src="top-left.gif" alt="Top Left GIF" class="top-gif" />
       <img src="bottom-left.gif" alt="Bottom Left GIF" class="bottom-gif" />
     </div>
 
+    <!-- CENTER -->
     <div class="center-column">
       <img src="header.gif" alt="Header" class="main-header-img" />
       <div class="social-links">
@@ -285,10 +298,12 @@
       <img src="idontthink.gif" alt="Meme" />
     </div>
 
+    <!-- RIGHT -->
     <div class="side-column right">
       <img src="music-on.gif" alt="Music Toggle" class="top-gif" id="musicToggle" />
       <img src="bottom-right.gif" alt="Bottom Right GIF" class="bottom-gif" />
     </div>
+
   </div>
 
   <!-- GIF STRIP -->
@@ -303,7 +318,6 @@
       <img src="gif7.gif" />
       <img src="gif8.gif" />
       <img src="gif9.gif" />
-      <!-- duplicate for looping -->
       <img src="gif1.gif" />
       <img src="gif2.gif" />
       <img src="gif3.gif" />
@@ -316,7 +330,7 @@
     </div>
   </div>
 
-  <!-- TEXT BOX -->
+  <!-- TEXT -->
   <div class="text-box">
     <span style="background-color: white; display: inline; padding: 0 4px;">
       The Dudes are here and prepared to flex their Butts.<br><br>
@@ -349,12 +363,12 @@
 
   <!-- Disclaimer -->
   <div class="disclaimer">
-    Disclaimer:<br> This site is a parody fan site and Dudes Butts Coin is purely for fun.<br>
+    Disclaimer:<br> This site is a parody fan site and Dudes Butts Coin is purely for fun. <br>
     The so called experts are not affiliated with this project.<br>
     This is not a financial investment.
   </div>
 
-  <!-- SCROLLING BORDERS -->
+  <!-- Scroll Borders -->
   <div class="scroll-column scroll-left">
     <div class="scroll-track">
       <img src="border.png" />
@@ -373,7 +387,7 @@
     </div>
   </div>
 
-  <!-- MUSIC TOGGLE SCRIPT -->
+  <!-- MUSIC TOGGLE -->
   <script>
     const audio = document.getElementById('backgroundMusic');
     const toggleBtn = document.getElementById('musicToggle');
@@ -398,16 +412,14 @@
     });
   </script>
 
-  <!-- BOTTOM HORIZONTAL BAND -->
+  <!-- Bottom Band -->
   <div class="horizontal-band">
     <div class="horizontal-track">
       <img src="border-horizontal.png" />
       <img src="border-horizontal.png" />
       <img src="border-horizontal.png" />
       <img src="border-horizontal.png" />
-      <img src="border-horizontal.png" />
-	    <img src="border-horizontal.png" />
-      <img src="border-horizontal.png" />
+	  <img src="border-horizontal.png" />
       <img src="border-horizontal.png" />
       <img src="border-horizontal.png" />
       <img src="border-horizontal.png" />
